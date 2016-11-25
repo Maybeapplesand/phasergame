@@ -60,7 +60,13 @@ function create() {
 }
 
 function update() {
-
+	game.physics.arcade.collide(player, platforms);
+	game.physics.arcade(enemy1, platforms);
+	player.body.velocity.x = 0;
+	//key pressed
+	if (cursors.left.isDown){
+		player.body.velocity.x = -150;
+	}
 }
 
 
