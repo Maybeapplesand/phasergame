@@ -58,6 +58,36 @@ function create() {
 		enemy1.body.gravity.y = 500;
 		enemy1.body.collideWorldBounds = true;
 }
+	enemy2 = game.add.sprite(750, 20, 'baddie');
+		// animate the sprite
+		enemy2.animations.add('left', [0,1], 10, true);
+		enemy2.animations.add('right', [2,3], 10, true);
+		game.physics.arcade.enable(enemy2);
+		// creating physics for enemy sprite
+		enemy2.body.bounce.y = 0.2;
+		enemy2.body.gravity.y = 500;
+		enemy2.body.collideWorldBounds = true;
+    
+    	enemy3 = game.add.sprite(750, 20, 'baddie');
+		// animate the sprite
+		enemy3.animations.add('left', [0,1], 10, true);
+		enemy3.animations.add('right', [2,3], 10, true);
+		game.physics.arcade.enable(enemy3);
+		// creating physics for enemy sprite
+		enemy3.body.bounce.y = 0.2;
+		enemy3.body.gravity.y = 500;
+		enemy3.body.collideWorldBounds = true;
+    
+
+	cursors = game.input.keyboard.createCursorKeys();
+
+	stars = game.add.physicsGroup();
+	stars.enableBody = true;
+	for (var i = 0; 12; i++) {
+		var star = star.create(i * 70,0,'star')
+		star.body.gravity.y = 200;
+		star.body.bounce.y = 0.7 + Math.random() * 0.2;
+	}
 
 function update() {
 	game.physics.arcade.collide(player, platforms);
@@ -66,8 +96,59 @@ function update() {
 	//key pressed
 	if (cursors.left.isDown){
 		player.body.velocity.x = -150;
+		player.animations.play('right')
+	} else if (cursors.right.isDown){
+		player.body.velocity.x = 150;
+		player.animations.play('right')
+
+	} else {
+		player.animations.stop();
+		player.frame = 4;
+	} {
+		if (cursors.up.isDown && player.body.touching.down)
+			player.body.velocity.y = -300
 	}
 }
+// Enemy AI
+	if (enemy1.x > 749)
+		enemy1.body.veloctiy.x = -100;
+		enemy1.animations.play('left')
+  } else if (enemy1.x < 405)
+  enemy1.body.velocity.x = 120
+  enemy1.animations.play('right');
+}
+if (enemy2.x > 749)
+		enemy2.body.veloctiy.x = -100;
+		enemy2.animations.play('left')
+  } else if (enemy2.x < 405)
+  enemy2.body.velocity.x = 120
+  enemy2.animations.play('right');
+}
+if (enemy3.x > 749)
+		enemy3.body.veloctiy.x = -100;
+		enemy3.animations.play('left')
+  } else if (enemy3.x < 405)
+  enemy3.body.velocity.x = 120
+  enemy3.animations.play('right');
+}
+
+
+
+ game.physics.arcade.collide(stars, platforms);
+ game.physics.arcade.over.collide(player, stars) {
+
+ 
+ function collectStar (player, star)
+ 	star.kill();
+ 	score = score + 1;
+ 	star = stars.create(Math.floor(math.random) * 750), 0, 'star'), 0 , 'star';
+ }
+
+ //
+ function loseLife (player, enemy) {
+ 	enemy.kill();
+ 	score = score - 1;
+ }
 
 
 
