@@ -108,40 +108,40 @@ function update() {
 		if (cursors.up.isDown && player.body.touching.down)
 			player.body.velocity.y = -300
 	}
-}
+
 // Enemy AI
-	if (enemy1.x > 749)
-		enemy1.body.veloctiy.x = -100;
-		enemy1.animations.play('left')
-  } else if (enemy1.x < 405)
-  enemy1.body.velocity.x = 120
-  enemy1.animations.play('right');
-}
-if (enemy2.x > 749)
-		enemy2.body.veloctiy.x = -100;
-		enemy2.animations.play('left')
-  } else if (enemy2.x < 405)
-  enemy2.body.velocity.x = 120
-  enemy2.animations.play('right');
-}
-if (enemy3.x > 749)
-		enemy3.body.veloctiy.x = -100;
-		enemy3.animations.play('left')
-  } else if (enemy3.x < 405)
-  enemy3.body.velocity.x = 120
-  enemy3.animations.play('right');
-}
+		if (enemy1.x > 749){
+			enemy1.body.veloctiy.x = -100;
+			enemy1.animations.play('left')
+	  } else if (enemy1.x < 405) {
+	  enemy1.body.velocity.x = 120
+	  enemy1.animations.play('right');
+	}
+	if (enemy2.x > 749){
+			enemy2.body.veloctiy.x = -100;
+			enemy2.animations.play('left')
+	  } else if (enemy2.x < 405) {
+	  enemy2.body.velocity.x = 120
+	  enemy2.animations.play('right');
+	}
+	if (enemy3.x > 749){
+			enemy3.body.veloctiy.x = -100;
+			enemy3.animations.play('left')
+	  } else if (enemy3.x < 405){
+	  enemy3.body.velocity.x = 120
+	  enemy3.animations.play('right');
+	}
 
 
 
  game.physics.arcade.collide(stars, platforms);
- game.physics.arcade.over.collide(player, stars) {
-
+ game.physics.arcade.over.collide(player, stars);
+}
  
- function collectStar (player, star)
+ function collectStar (player, star){
  	star.kill();
  	score = score + 1;
- 	star = stars.create(Math.floor(math.random) * 750), 0, 'star'), 0 , 'star';
+ 	star = stars.create(Math.floor(math.random) * 750), 0 , 'star';
  }
 
  //
